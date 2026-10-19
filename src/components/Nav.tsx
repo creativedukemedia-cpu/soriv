@@ -36,7 +36,7 @@ function Nav() {
           {/* Logo placeholder */}
           <div className="flex-shrink-0">
             <div className="text-sm md:text-base font-bold text-foreground">
-              SORIV
+              SOR-<span className="text-red-500">IV</span>
             </div>
           </div>
 

@@ -39,7 +39,7 @@ function Home() {
                   Home
                 </a>
                 <span className="text-muted-foreground">/</span>
-                <span className="text-foreground font-semibold">SORIV</span>
+                <span className="text-foreground font-semibold">SOR</span>
               </nav>
             </div>
           </section>
