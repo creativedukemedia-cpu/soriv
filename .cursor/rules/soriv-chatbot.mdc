@@ -1,0 +1,20 @@
+---
+description: Hard rules for the UMES SOR IV chatbot
+alwaysApply: true
+---
+
+Project: chatbot for the UMES SOR IV website (Vite + React SPA on Vercel).
+Audience: visitors struggling with substance use, mental health, or family well-being, and people supporting them. Some may be in crisis.
+Content source: Group_2_FAQ.docx (7 FAQs with button-driven follow-ups).
+
+Hard rules:
+1. Information and referrals only. No diagnosis, no medical advice, no dosing or withdrawal instructions.
+2. Core experience is a scripted decision tree with buttons. Any LLM use is optional and only over approved content.
+3. A crisis check runs in code BEFORE any model call. Crisis messages never reach the model.
+4. 988 (call or text) and 911 are reachable from every screen.
+5. No chat logging and no personal data stored unless the client approves in writing.
+6. Tone: warm, confident, clear, non-judgmental, no stigma language. Plain words.
+7. Never invent phone numbers, services, or facts. If unsure, point to 988 or SAMHSA 1-800-662-4357.
+8. No em dashes in user-facing copy.
+
+Work in small steps. Summarize changes in 5 lines or fewer. Ask before adding dependencies.
