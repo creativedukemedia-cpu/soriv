@@ -31,7 +31,7 @@ function Nav() {
   return (
     <>
       {/* Primary navbar */}
-      <nav className="fixed z-20 top-0 w-full border-b border-accent bg-background px-4">
+      <nav className="fixed z-20 top-10 w-full border-b border-accent bg-background px-4">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
           {/* Logo placeholder */}
           <div className="flex-shrink-0">
@@ -86,8 +86,9 @@ function Nav() {
         )}
       </nav>
 
-      {/* Spacer for fixed navbar */}
-      <div className="w-full h-16"></div>
+      {/* Spacer for fixed crisis bar (h-10) + navbar (h-16) */}
+      <div className="w-full h-10" aria-hidden="true" />
+      <div className="w-full h-16" aria-hidden="true" />
     </>
   );
 }

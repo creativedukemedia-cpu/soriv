@@ -1,19 +1,12 @@
 import React from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function About() {
   return (
-    <>
-      <Nav />
-
-      <ScrollArea className="w-full">
-        <main className="bg-background">
+        <div className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
               badge="About SORIV"
@@ -266,10 +259,7 @@ function About() {
             </article>
           </section>
 
-          <Footer />
-        </main>
-      </ScrollArea>
-    </>
+        </div>
   );
 }
 

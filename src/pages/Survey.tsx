@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -833,11 +830,7 @@ function Survey() {
   ];
 
   return (
-    <>
-      <Nav />
-
-      <ScrollArea className="w-full">
-        <main className="bg-background">
+        <div className="bg-background">
           {/* Hero Section */}
 
           <HeroSection
@@ -917,11 +910,7 @@ function Survey() {
             </div>
           </section>
 
-          {/* Footer */}
-          <Footer />
-        </main>
-      </ScrollArea>
-    </>
+        </div>
   );
 }
 

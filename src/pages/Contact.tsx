@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 /* Reusable Image with Fallback */
 type ProfileImageProps = {
@@ -39,11 +36,7 @@ function ProfileImage({ src, name }: ProfileImageProps) {
 
 function Contact() {
   return (
-    <>
-      <Nav />
-
-      <ScrollArea className="w-full">
-        <main className="bg-background">
+        <div className="bg-background">
           <HeroSection
             badge="SORIV Team"
             headline="Meet the Team"
@@ -141,10 +134,7 @@ function Contact() {
             </div>
           </section>
 
-          <Footer />
-        </main>
-      </ScrollArea>
-    </>
+        </div>
   );
 }
 

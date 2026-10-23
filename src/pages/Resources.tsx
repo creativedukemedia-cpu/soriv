@@ -1,9 +1,6 @@
 import React from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import CtaStrip from "@/components/CtaStrip";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function Resources() {
@@ -16,11 +13,7 @@ function Resources() {
   ];
 
   return (
-    <>
-      <Nav />
-
-      <ScrollArea className="w-full">
-        <main className="bg-background">
+        <div className="bg-background">
           {/* Hero Section */}
           <HeroSection
             badge="Resource Library"
@@ -123,11 +116,7 @@ function Resources() {
             </div>
           </section>
 
-          {/* Footer */}
-          <Footer />
-        </main>
-      </ScrollArea>
-    </>
+        </div>
   );
 }
 

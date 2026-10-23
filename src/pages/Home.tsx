@@ -1,20 +1,14 @@
 import React from "react";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import TwoColumnSection from "@/components/TwoColumnSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
 import CtaStrip from "@/components/CtaStrip";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function Home() {
   return (
-    <>
-      <Nav />
-      <ScrollArea className="w-full">
-        <main className="bg-background">
+        <div className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
               badge="SORIV Education Hub"
@@ -250,10 +244,7 @@ function Home() {
             </article>
           </section>
 
-          <Footer />
-        </main>
-      </ScrollArea>
-    </>
+        </div>
   );
 }
 
