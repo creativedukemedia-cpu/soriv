@@ -5,11 +5,11 @@ import { LazyImage } from "@/components/LazyImage";
 
 function Resources() {
   const resources = [
-    "/flyer-1.png",
-    "/flyer-2.png",
-    "/flyer-3.png",
-    "/save-a-life.png",
-    "/not-alone.png",
+    "/flyer-1.webp",
+    "/flyer-2.webp",
+    "/flyer-3.webp",
+    "/save-a-life.webp",
+    "/not-alone.webp",
   ];
 
   return (
@@ -63,25 +63,32 @@ function Resources() {
                   </h3>
                   <ul className="mt-4 space-y-3 text-muted-foreground">
                     <li>
-                      <a href="#" className="text-primary hover:underline">
-                        SAMHSA National Helpline
+                      <a
+                        href="https://988lifeline.org"
+                        className="text-primary hover:underline"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        988 Suicide &amp; Crisis Lifeline
                       </a>
+                      <span className="ml-2">988</span>
                     </li>
                     <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Naloxone Distribution Sites
+                      <a
+                        href="https://findtreatment.gov"
+                        className="text-primary hover:underline"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        FindTreatment.gov
                       </a>
+                      <span className="ml-2">
+                        SAMHSA National Helpline: 1-800-662-4357
+                      </span>
                     </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Recovery Support Services
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Educational Webinars
-                      </a>
-                    </li>
+                    <li>Naloxone Distribution Sites</li>
+                    <li>Recovery Support Services</li>
+                    <li>Educational Webinars</li>
                   </ul>
                 </div>
 
@@ -90,26 +97,10 @@ function Resources() {
                     Quick Reference
                   </h3>
                   <ul className="mt-4 space-y-3 text-muted-foreground">
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Overdose Response Guide
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Naloxone How-To
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Campus Resources Directory
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Student Peer Support Network
-                      </a>
-                    </li>
+                    <li>Overdose Response Guide</li>
+                    <li>Naloxone How-To</li>
+                    <li>Campus Resources Directory</li>
+                    <li>Student Peer Support Network</li>
                   </ul>
                 </div>
               </div>

@@ -12,6 +12,17 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  /*
+   * Brand type (Merel / Sentinel / Factoria not licensed here).
+   * Official alternates from UMES Brand Guidelines May 2025:
+   *   Merel -> Century Gothic | Sentinel -> Georgia | Factoria -> Rockwell Nova
+   * No @font-face embed without licensed files; system stacks only.
+   */
+  --font-brand-sans: var(--font-merel-alt);
+  --font-brand-serif: var(--font-sentinel-alt);
+  --font-brand-display: var(--font-factoria-alt);
+  --font-sans: var(--font-merel-alt);
+  --font-serif: var(--font-sentinel-alt);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -45,79 +56,138 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Named brand palette (for rare one-offs; prefer semantic tokens above). */
+  --color-brand-maroon: var(--brand-maroon);
+  --color-brand-grey: var(--brand-grey);
+  --color-brand-stone-maroon: var(--brand-stone-maroon);
+  --color-brand-deep-maroon: var(--brand-deep-maroon);
+  --color-brand-feather-grey: var(--brand-feather-grey);
+  --color-brand-light-grey: var(--brand-light-grey);
+  --color-brand-dark-grey: var(--brand-dark-grey);
 }
+
+/*
+ * UMES brand colors (client-supplied).
+ * Primary: Maroon #651D32, Grey #888B8D, White #FFFFFF, Black #000000
+ * Secondary (support only): Stone Maroon #896F77, Deep Maroon #441120,
+ *   Feather Grey #EDEDED, Light Grey #D9D9D6, Dark Grey #515251
+ *
+ * Fonts: Merel / Sentinel / Factoria not licensed for this project.
+ * Using official alternates (system stacks; no @font-face embeds).
+ *
+ * Contrast flags (brand HEX unchanged; avoid failing pairs in UI):
+ * - Grey #888B8D on White: 3.43:1 FAIL normal text (UI/large only)
+ * - Grey on Feather/Light Grey: FAIL text
+ * - White on Grey: 3.43:1 FAIL normal text
+ * - Stone Maroon on Maroon: 2.59:1 FAIL (do not use text-tertiary on bg-primary)
+ * - Stone Maroon on Feather Grey: 3.90:1 FAIL normal text
+ * Safe body text on white: Black, Deep Maroon, Maroon, Dark Grey, Stone Maroon (4.56:1)
+ */
 
 :root {
   --radius: 0.625rem;
+
+  /* Merel alternate */
+  --font-merel-alt: "Century Gothic", CenturyGothic, AppleGothic, "URW Gothic",
+    Futura, "Trebuchet MS", sans-serif;
+  /* Sentinel alternate */
+  --font-sentinel-alt: Georgia, "Times New Roman", Times, serif;
+  /* Factoria alternate (sparingly: hero / campaign headlines only) */
+  --font-factoria-alt: "Rockwell Nova", Rockwell, "Courier New", Courier, serif;
+
+  --brand-maroon: #651d32;
+  --brand-grey: #888b8d;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+  --brand-stone-maroon: #896f77;
+  --brand-deep-maroon: #441120;
+  --brand-feather-grey: #ededed;
+  --brand-light-grey: #d9d9d6;
+  --brand-dark-grey: #515251;
+
   --background: #ffffff;
-  --foreground: #0b2e5e;
+  --foreground: #000000;
   --card: #ffffff;
-  --card-foreground: #0b2e5e;
+  --card-foreground: #000000;
   --popover: #ffffff;
-  --popover-foreground: #0b2e5e;
-  --primary: #0b2e5e;
+  --popover-foreground: #000000;
+
+  --primary: #651d32;
   --primary-foreground: #ffffff;
-  --secondary: #449dd1;
-  --secondary-foreground: #ffffff;
-  --tertiary: #f49f04;
-  --tertiary-foreground: #0b2e5e;
-  --muted: #808080;
-  --muted-foreground: #808080;
-  --accent: #f49f04;
-  --accent-foreground: #0b2e5e;
-  --destructive: #b91c1c;
-  --border: #808080;
-  --input: #808080;
-  --ring: #449dd1;
-  --chart-1: #0b2e5e;
-  --chart-2: #449dd1;
-  --chart-3: #f49f04;
-  --chart-4: #808080;
-  --chart-5: #ffffff;
+
+  /* Support only: light fill, never a dominant page color. */
+  --secondary: #ededed;
+  --secondary-foreground: #515251;
+
+  --tertiary: #896f77;
+  --tertiary-foreground: #ffffff;
+
+  --muted: #d9d9d6;
+  /*
+   * muted-foreground uses Dark Grey #515251 (7.85:1 on white), not brand Grey
+   * #888B8D (3.43:1 on white, fails AA for normal text). Brand Grey kept for
+   * borders / non-text UI only.
+   */
+  --muted-foreground: #515251;
+
+  --accent: #896f77;
+  --accent-foreground: #ffffff;
+
+  --destructive: #441120;
+  --border: #888b8d;
+  --input: #888b8d;
+  --ring: #651d32;
+
+  --chart-1: #651d32;
+  --chart-2: #441120;
+  --chart-3: #896f77;
+  --chart-4: #515251;
+  --chart-5: #d9d9d6;
+
   --sidebar: #ffffff;
-  --sidebar-foreground: #0b2e5e;
-  --sidebar-primary: #0b2e5e;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #651d32;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f49f04;
-  --sidebar-accent-foreground: #0b2e5e;
-  --sidebar-border: #808080;
-  --sidebar-ring: #449dd1;
+  --sidebar-accent: #ededed;
+  --sidebar-accent-foreground: #515251;
+  --sidebar-border: #d9d9d6;
+  --sidebar-ring: #651d32;
 }
 
 .dark {
-  --background: #0b2e5e;
+  --background: #441120;
   --foreground: #ffffff;
-  --card: #0b2e5e;
+  --card: #441120;
   --card-foreground: #ffffff;
-  --popover: #0b2e5e;
+  --popover: #441120;
   --popover-foreground: #ffffff;
-  --primary: #449dd1;
-  --primary-foreground: #0b2e5e;
-  --secondary: #ffffff;
-  --secondary-foreground: #0b2e5e;
-  --tertiary: #f49f04;
-  --tertiary-foreground: #0b2e5e;
-  --muted: #808080;
-  --muted-foreground: #ffffff;
-  --accent: #f49f04;
-  --accent-foreground: #0b2e5e;
-  --destructive: #ef4444;
-  --border: #449dd1;
-  --input: #449dd1;
-  --ring: #f49f04;
-  --chart-1: #449dd1;
-  --chart-2: #f49f04;
+  --primary: #896f77;
+  --primary-foreground: #ffffff;
+  --secondary: #515251;
+  --secondary-foreground: #ffffff;
+  --tertiary: #d9d9d6;
+  --tertiary-foreground: #441120;
+  --muted: #515251;
+  --muted-foreground: #d9d9d6;
+  --accent: #896f77;
+  --accent-foreground: #ffffff;
+  --destructive: #896f77;
+  --border: #888b8d;
+  --input: #888b8d;
+  --ring: #ededed;
+  --chart-1: #896f77;
+  --chart-2: #d9d9d6;
   --chart-3: #ffffff;
-  --chart-4: #808080;
-  --chart-5: #0b2e5e;
-  --sidebar: #0b2e5e;
+  --chart-4: #888b8d;
+  --chart-5: #441120;
+  --sidebar: #441120;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #449dd1;
-  --sidebar-primary-foreground: #0b2e5e;
-  --sidebar-accent: #f49f04;
-  --sidebar-accent-foreground: #0b2e5e;
-  --sidebar-border: #449dd1;
-  --sidebar-ring: #f49f04;
+  --sidebar-primary: #896f77;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #515251;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #888b8d;
+  --sidebar-ring: #ededed;
 }
 
 @layer base {
@@ -128,6 +198,17 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-brand-serif text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-brand-sans;
+  }
+  .font-brand-display {
+    font-family: var(--font-factoria-alt);
   }
 }

@@ -26,7 +26,11 @@ function ProfileImage({ src, name }: ProfileImageProps) {
           className="aspect-4/5 w-full h-full object-cover"
         />
       ) : (
-        <div className="aspect-4/5 flex items-center justify-center bg-linear-to-br from-primary/80 via-secondary/80 to-primary/40 text-7xl font-black uppercase tracking-[0.16em] text-white">
+        <div
+          className="aspect-4/5 flex items-center justify-center bg-linear-to-br from-primary/80 via-secondary/80 to-primary/40 text-7xl font-black uppercase tracking-[0.16em] text-white"
+          role="img"
+          aria-label={name}
+        >
           {initials}
         </div>
       )}
@@ -52,14 +56,18 @@ function Contact() {
                   name="Dr. Kimberly Poole-Sykes"
                 />
 
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
+                {/*
+                  Role titles use primary-foreground (white), not tertiary
+                  (Stone Maroon on Maroon is 2.59:1, fails AA).
+                */}
+                <div className="rounded-[1.75rem] bg-primary p-8 text-primary-foreground shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
                   <h2 className="text-3xl font-semibold">
                     Dr. Kimberly Poole-Sykes
                   </h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
+                  <p className="mt-2 text-sm font-semibold text-brand-light-grey">
                     Chair and Professor
                   </p>
-                  <p className="mt-1 text-sm text-white/80">
+                  <p className="mt-1 text-sm text-primary-foreground/80">
                     Department of Education
                   </p>
 
@@ -85,14 +93,16 @@ function Contact() {
                   name="LaKeisha Harris, Ph.D., CRC"
                 />
 
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
+                <div className="rounded-[1.75rem] bg-primary p-8 text-primary-foreground shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
                   <h2 className="text-3xl font-semibold">
                     LaKeisha Harris, Ph.D., CRC
                   </h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
+                  <p className="mt-2 text-sm font-semibold text-brand-light-grey">
                     Dean
                   </p>
-                  <p className="mt-1 text-sm text-white/80">Graduate Studies</p>
+                  <p className="mt-1 text-sm text-primary-foreground/80">
+                    Graduate Studies
+                  </p>
 
                   <div className="mt-8 space-y-2 text-sm">
                     <p>
@@ -114,12 +124,12 @@ function Contact() {
               <div className="grid gap-6 rounded-[2rem] border border-secondary/25 bg-card/60 p-6 shadow-[0_22px_60px_-40px_var(--color-primary)] md:grid-cols-[minmax(280px,34%)_1fr] md:p-8">
                 <ProfileImage src="/images/cooper.jpg" name="Angel Cooper" />
 
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
+                <div className="rounded-[1.75rem] bg-primary p-8 text-primary-foreground shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
                   <h2 className="text-3xl font-semibold">Angel Cooper</h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
+                  <p className="mt-2 text-sm font-semibold text-brand-light-grey">
                     M.S. Rehabilitation Counseling
                   </p>
-                  <p className="mt-1 text-sm text-white/80">
+                  <p className="mt-1 text-sm text-primary-foreground/80">
                     Counselor Education Program
                   </p>
 

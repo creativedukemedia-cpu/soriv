@@ -7,7 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:tree": "node --experimental-strip-types scripts/validate-tree.ts",
+    "validate:resources": "node --experimental-strip-types scripts/validate-resources.ts",
+    "test:crisis": "node --experimental-strip-types --test src/chatbot/crisis.test.ts",
+    "test:chat": "node --experimental-strip-types --test src/chatbot/useChatFlow.test.ts",
+    "test:resources": "node --experimental-strip-types --test src/chatbot/resources.test.ts",
+    "test:match": "node --experimental-strip-types --test src/chatbot/match.test.ts",
+    "test:qa": "node --experimental-strip-types --test src/chatbot/qa.test.ts",
+    "test:chatbot": "node --experimental-strip-types --test src/chatbot/*.test.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

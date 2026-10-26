@@ -13,6 +13,7 @@ function LazyImage({
   className,
   onLoad,
   loading,
+  alt,
   ...props
 }: LazyImageProps) {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,7 @@ function LazyImage({
       ) : null}
       <img
         {...props}
+        alt={alt ?? ""}
         loading={loading ?? "lazy"}
         onLoad={handleLoad}
         className={cn("block h-full w-full", className, !loaded && "opacity-0")}

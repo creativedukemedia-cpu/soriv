@@ -1,17 +1,26 @@
 import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import BrandLogo from "@/components/BrandLogo";
 
 function Footer() {
   return (
     <footer className="border-t border-secondary/25 bg-background py-12">
       <div className="mx-auto max-w-7xl px-4">
+        {/* Primary mark: meets 413px minimum width on md+. */}
+        <div className="mb-10 max-w-full overflow-hidden">
+          <BrandLogo
+            variant="primary"
+            programLabel=""
+            imgClassName="max-h-24 min-w-0 w-full max-w-[413px]"
+          />
+        </div>
+
         {/* Main footer content */}
         <div className="grid gap-8 md:grid-cols-2">
           {/* Left: Quick Office Links */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground">
+            <h2 className="text-lg font-semibold text-foreground">
               Quick Office Links
-            </h3>
+            </h2>
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               {/* Student Services */}
@@ -151,21 +160,10 @@ function Footer() {
             </a>
           </div>
 
-          {/* Contact info */}
-          <div className="flex flex-col gap-2 text-sm text-muted-foreground md:flex-row md:items-center md:gap-6">
-            <div className="flex items-center gap-2">
-              <MapPin size={16} className="text-primary" />
-              <span>123 University Drive, City, ST 12345</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone size={16} className="text-primary" />
-              <span>(123) 456-7890</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail size={16} className="text-primary" />
-              <span>info@university.edu</span>
-            </div>
-          </div>
+          {/* TODO: Replace with verified UMES / SOR IV address, phone, and email when the client provides them. */}
+          <p className="text-sm text-muted-foreground">
+            Contact details coming soon.
+          </p>
         </div>
 
         {/* Copyright & Accreditation */}

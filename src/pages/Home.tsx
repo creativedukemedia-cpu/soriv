@@ -1,9 +1,7 @@
 import React from "react";
 import HeroSection from "@/components/HeroSection";
-import TwoColumnSection from "@/components/TwoColumnSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
-import CtaStrip from "@/components/CtaStrip";
 import { LazyImage } from "@/components/LazyImage";
 
 function Home() {
@@ -16,7 +14,11 @@ function Home() {
               description="Quick, clear, and student-friendly info for spotting warning signs early, reducing harm, and getting support fast on campus and in your community."
               backgroundImageUrl="/drugneedle.jpg"
               ctaButtons={[
-                { label: "Explore Resources", isPrimary: true },
+                {
+                  label: "Explore Resources",
+                  isPrimary: true,
+                  href: "/resources",
+                },
                 {
                   label: "Take the Survey",
                   isPrimary: false,

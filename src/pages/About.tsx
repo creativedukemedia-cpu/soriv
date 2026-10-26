@@ -218,7 +218,7 @@ function About() {
                     </p>
                     <a
                       href="mailto:soriv@umes.edu"
-                      className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-secondary"
+                      className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-brand-deep-maroon"
                     >
                       Contact The Team
                     </a>

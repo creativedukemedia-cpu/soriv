@@ -19,14 +19,6 @@ function HeroSection({
   ctaButtons = [],
   backgroundImageUrl,
 }: HeroSectionProps) {
-  const bgStyle = backgroundImageUrl
-    ? {
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }
-    : {};
-
   const textColorClass = backgroundImageUrl ? "text-white" : "text-foreground";
   const descriptionColorClass = backgroundImageUrl
     ? "text-white/80"
@@ -36,13 +28,23 @@ function HeroSection({
     : "border-secondary/40 bg-background/70 text-primary";
 
   return (
-    <section
-      className="relative overflow-hidden py-20 md:py-32 px-4"
-      style={bgStyle}
-    >
-      {backgroundImageUrl && <div className="absolute inset-0 bg-black/60" />}
+    <section className="relative overflow-hidden py-20 md:py-32 px-4">
+      {backgroundImageUrl ? (
+        <>
+          {/* Decorative only; headline describes the section. */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+        </>
+      ) : null}
 
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(68,157,209,0.18),transparent_36%),radial-gradient(circle_at_88%_20%,rgba(244,159,4,0.1),transparent_34%)]" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(68,157,209,0.18),transparent_36%),radial-gradient(circle_at_88%_20%,rgba(244,159,4,0.1),transparent_34%)]"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="max-w-3xl">
@@ -55,7 +57,7 @@ function HeroSection({
           )}
 
           <h1
-            className={`mt-6 text-5xl md:text-6xl font-extrabold leading-tight ${textColorClass}`}
+            className={`font-brand-display mt-6 text-5xl md:text-6xl font-extrabold leading-tight ${textColorClass}`}
           >
             {headline}
           </h1>
@@ -76,7 +78,7 @@ function HeroSection({
                   href={btn.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block ${
+                  className={`rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     btn.isPrimary
                       ? "bg-primary text-primary-foreground hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
                       : "border border-secondary/45 bg-background/70 text-primary hover:border-secondary hover:bg-background"
