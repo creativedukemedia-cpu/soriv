@@ -8,6 +8,8 @@ interface HeroSectionProps {
     label: string;
     isPrimary?: boolean;
     href?: string; // <-- use href instead of onClick
+    onClick?: () => void;
+    disabled?: boolean;
   }>;
   backgroundImageUrl?: string;
 }
@@ -72,21 +74,40 @@ function HeroSection({
 
           {ctaButtons.length > 0 && (
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              {ctaButtons.map((btn, idx) => (
-                <a
-                  key={idx}
-                  href={btn.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-                    btn.isPrimary
-                      ? "bg-primary text-primary-foreground hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
-                      : "border border-secondary/45 bg-background/70 text-primary hover:border-secondary hover:bg-background"
-                  }`}
-                >
-                  {btn.label}
-                </a>
-              ))}
+              {ctaButtons.map((btn, idx) => {
+                const className = `rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                  btn.isPrimary
+                    ? "bg-primary text-primary-foreground hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
+                    : "border border-secondary/45 bg-background/70 text-primary hover:border-secondary hover:bg-background"
+                }`;
+
+                if (btn.onClick) {
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={btn.onClick}
+                      disabled={btn.disabled}
+                      aria-busy={btn.disabled || undefined}
+                      className={className}
+                    >
+                      {btn.label}
+                    </button>
+                  );
+                }
+
+                return (
+                  <a
+                    key={idx}
+                    href={btn.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {btn.label}
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>

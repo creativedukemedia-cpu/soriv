@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import CtaStrip from "@/components/CtaStrip";
-import { LazyImage } from "@/components/LazyImage";
+import ResourceSlideshow from "@/components/ResourceSlideshow";
 
 function Resources() {
   const resources = [
@@ -10,7 +10,42 @@ function Resources() {
     "/flyer-3.webp",
     "/save-a-life.webp",
     "/not-alone.webp",
+    "/fact-sheet-fentanyl.png",
+    "/Recovery.png",
+    "/Support.png",
   ];
+
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadAll = async () => {
+    if (downloading) return;
+    setDownloading(true);
+
+    try {
+      for (const src of resources) {
+        try {
+          const response = await fetch(encodeURI(src));
+          if (!response.ok) continue;
+
+          const objectUrl = URL.createObjectURL(await response.blob());
+          const link = document.createElement("a");
+          link.href = objectUrl;
+          link.download = decodeURIComponent(
+            src.split("/").pop() || "resource.png",
+          );
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+          await new Promise((resolve) => window.setTimeout(resolve, 250));
+        } catch {
+          continue;
+        }
+      }
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
         <div className="bg-background">
@@ -19,7 +54,16 @@ function Resources() {
             badge="Resource Library"
             headline="Resources and Flyers"
             description="Browse and share these materials to help students recognize risk, respond quickly, and connect to support."
-            ctaButtons={[{ label: "Download All Resources", isPrimary: true }]}
+            ctaButtons={[
+              {
+                label: downloading
+                  ? "Downloading…"
+                  : "Download All Resources",
+                isPrimary: true,
+                disabled: downloading,
+                onClick: handleDownloadAll,
+              },
+            ]}
           />
 
           {/* Resource Layout */}
@@ -28,21 +72,7 @@ function Resources() {
               <h2 className="text-2xl font-semibold text-foreground mb-8">
                 Featured Flyers & Materials
               </h2>
-              <div className="grid gap-8">
-                {resources.map((src) => (
-                  <div
-                    key={src}
-                    className="overflow-hidden rounded-[2rem] border border-secondary/25 bg-card/80 p-4 shadow-[0_20px_60px_-40px_var(--color-primary)]"
-                  >
-                    <LazyImage
-                      src={src}
-                      alt="SORIV resource flyer"
-                      wrapperClassName="w-full"
-                      className="w-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
+              <ResourceSlideshow images={resources} />
             </div>
           </section>
 
@@ -62,6 +92,16 @@ function Resources() {
                     External Resources
                   </h3>
                   <ul className="mt-4 space-y-3 text-muted-foreground">
+                    <li>
+                      <a
+                        href="https://website-media.com/somerset-county-health-departmetn/somerset-co-health-dept-2024/2026/03/20155301/March-2026-Tri-County-Resource-Guide.pdf"
+                        className="text-primary hover:underline"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        March 2026 Tri-County Resource Guide (PDF)
+                      </a>
+                    </li>
                     <li>
                       <a
                         href="https://988lifeline.org"

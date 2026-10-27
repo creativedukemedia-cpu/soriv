@@ -1,9 +1,10 @@
 {
-  "name": "soriv_draft",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
+ "name": "soriv_draft",
+ "private": true,
+ "version": "0.0.0",
+  "packageManager": "npm@10.9.9",
+ "type": "module",
+ "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

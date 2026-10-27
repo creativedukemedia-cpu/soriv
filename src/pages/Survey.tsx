@@ -1,11 +1,10 @@
 import React from "react";
 import HeroSection from "@/components/HeroSection";
+import { LazyImage } from "@/components/LazyImage";
 
 function Survey() {
   return (
     <div className="bg-background">
-      {/* Hero Section */}
-
       <HeroSection
         badge="Student Survey"
         headline="Share Your Experience"
@@ -14,15 +13,37 @@ function Survey() {
           {
             label: "Start Survey",
             isPrimary: true,
-            href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+            href: "/survey/take",
           },
         ]}
       />
 
-      {/* FAQ Section */}
-      <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
+      <section className="border-t border-secondary/25 px-4 py-10 md:py-14">
+        <div className="mx-auto grid max-w-4xl gap-8 rounded-[2rem] border border-secondary/25 bg-card/80 p-6 shadow-[0_22px_66px_-44px_var(--color-primary)] md:grid-cols-[1.15fr_0.85fr] md:p-8">
+          <div className="flex flex-col justify-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+              Student voices matter
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
+              Help shape the support students need.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Your perspective helps SORIV understand how to make resources,
+              education, and support more useful for the campus community.
+            </p>
+          </div>
+          <LazyImage
+            src="/student-survey-campus.webp"
+            alt="A group of college students talking outdoors"
+            wrapperClassName="aspect-4/3 w-full overflow-hidden rounded-2xl"
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </section>
+
+      <section className="border-t border-secondary/25 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">
+          <h2 className="mb-8 text-center text-2xl font-semibold text-foreground">
             About This Survey
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
@@ -40,8 +61,8 @@ function Survey() {
                 Takes 5 Minutes
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                Quick, straightforward questions designed to gather
-                meaningful insights without taking up too much of your time.
+                Quick, straightforward questions designed to gather meaningful
+                insights without taking up too much of your time.
               </p>
             </div>
             <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
@@ -58,8 +79,8 @@ function Survey() {
                 No Wrong Answers
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                We value your honest thoughts, whether you plan or don't
-                plan to take the survey, share your true perspective.
+                We value your honest thoughts. Whether you plan or do not plan
+                to take the survey, share your true perspective.
               </p>
             </div>
           </div>

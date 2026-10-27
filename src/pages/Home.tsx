@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
@@ -22,7 +23,7 @@ function Home() {
                 {
                   label: "Take the Survey",
                   isPrimary: false,
-                  href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+                  href: "/survey",
                 },
               ]}
             />
@@ -93,6 +94,14 @@ function Home() {
                       className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
                     >
                       Why SORIV Matters
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#where-are-you-at"
+                      className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
+                    >
+                      Where Are You At?
                     </a>
                   </li>
                 </ul>
@@ -244,6 +253,34 @@ function Home() {
                 />
               </section>
             </article>
+          </section>
+
+          <section
+            id="where-are-you-at"
+            className="border-t border-secondary/25 px-4 py-12 md:py-16"
+          >
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)] md:p-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Self-check
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl">
+                Where are you at?
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+                A short readiness-to-change check with 18 true/false statements
+                about how you feel today. It is a self-reflection tool, not a
+                diagnosis, and your answers stay in your browser.
+              </p>
+              <p className="mt-3 text-sm font-medium text-foreground">
+                Takes about 3–5 minutes.
+              </p>
+              <Link
+                to="/where-are-you-at"
+                className="mt-8 inline-flex rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-[0_12px_28px_-16px_var(--color-primary)] transition hover:-translate-y-0.5"
+              >
+                Where are you at?
+              </Link>
+            </div>
           </section>
 
         </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/chatbot/ChatWidget";
 
 export default function Layout() {
   return (
@@ -39,9 +38,6 @@ export default function Layout() {
       </main>
 
       <Footer />
-
-      <div id="chat-root" />
-      <ChatWidget />
     </>
   );
 }

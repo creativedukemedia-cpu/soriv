@@ -4,6 +4,21 @@ import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
 import { LazyImage } from "@/components/LazyImage";
 
+const studentAcknowledgements = [
+  "Sheila Blosveren",
+  "Oluwanifemi M. Faniyi",
+  "Noah Farris",
+  "Emory Golden",
+  "Alex Head",
+  "Shellyann Henry",
+  "Amira Hicks",
+  "Lynnette Jones",
+  "Chelsey Rouse",
+  "Kathleen Thompson",
+  "Sopuruchukwu Ani",
+  "Munachimso Ani",
+];
+
 function About() {
   return (
         <div className="bg-background">
@@ -41,6 +56,14 @@ function About() {
                       className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
                     >
                       About SORIV
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#funding-collaboration"
+                      className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
+                    >
+                      Funding &amp; Collaboration
                     </a>
                   </li>
                   <li>
@@ -83,6 +106,14 @@ function About() {
                       Why This Approach
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="#acknowledgements"
+                      className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
+                    >
+                      Acknowledgements
+                    </a>
+                  </li>
                 </ul>
               </div>
             </aside>
@@ -108,6 +139,41 @@ function About() {
                   Program, SORIV aims to engage students, faculty, and community
                   partners around prevention and recovery.
                 </p>
+              </section>
+
+              <section
+                id="funding-collaboration"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                  Project support
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-foreground">
+                  Funding &amp; Collaboration
+                </h2>
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+                  SORIV is funded by the Maryland Department of Behavioral
+                  Health and developed in collaboration with the UMES Counseling
+                  Education Program.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-secondary/25 bg-background/70 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                      Funding support
+                    </p>
+                    <h3 className="mt-3 text-lg font-semibold text-foreground">
+                      Maryland Department of Behavioral Health
+                    </h3>
+                  </div>
+                  <div className="rounded-2xl border border-secondary/25 bg-background/70 p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                      Program collaboration
+                    </p>
+                    <h3 className="mt-3 text-lg font-semibold text-foreground">
+                      UMES Counseling Education Program
+                    </h3>
+                  </div>
+                </div>
               </section>
 
               <section
@@ -255,6 +321,28 @@ function About() {
                     "Data-driven outcomes mean we continuously improve what works and adjust what doesn't.",
                   ]}
                 />
+              </section>
+
+              <section
+                id="acknowledgements"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+              >
+                <h2 className="text-3xl font-semibold text-foreground">
+                  Acknowledgements
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-muted-foreground">
+                  Special thanks are extended to the following students for
+                  their meaningful contributions to the fulfillment of this
+                  website&apos;s purpose.
+                </p>
+                <ul className="mt-8 grid gap-3 text-muted-foreground sm:grid-cols-2">
+                  {studentAcknowledgements.map((name) => (
+                    <li key={name} className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <span>{name}</span>
+                    </li>
+                  ))}
+                </ul>
               </section>
             </article>
           </section>
